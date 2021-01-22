@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style4.css">
+    <title>Update details</title>
+</head>
+<body>
+    <div class="container">
+        <h1>UPDATE</h1>
+        <form name="fname" onSubmit="return nameCorrect()" action="changeName.php" method="post">
+            <input type="name" name="name" id="name" placeholder="Enter your new name">
+            <button class="btn" type="submit">CHANGE</button>
+        </form>
+        <form name="femail"  onSubmit="return emailCorrect()" action="changeEmail.php" method="post">
+            <input type="email" name="email" id="email" placeholder="Enter your new email">
+            <button class="btn" type="submit">CHANGE</button>
+        </form>
+        <form name="fphone" onSubmit="return phoneCorrect()" action="changePhone.php" method="post">
+            <input type="phone" name="phone" id="phone" placeholder="Enter your new phone number">
+            <button class="btn" type="submit">CHANGE</button>
+        </form>
+        <form name="fgender" onSubmit="return genderCorrect()" action="changeGender.php" method="post">
+            <input type="gender" name="gender" id="gender" placeholder="Enter your new gender">
+            <button class="btn" type="submit">CHANGE</button>
+        </form>
+        <form name="fpass" onSubmit="return passCorrect()" action="changePass.php" method="post">
+            <input type="text" name="pass" id="pass" placeholder="Enter your new password">
+            <button class="btn" type="submit">CHANGE</button>
+        </form>
+
+
+    </div>
+
+
+    <script>
+        function nameCorrect(){
+            var nameId = document.fname.name.value;
+            if (nameId.length == "") {
+                alert("Name field can't be empty.");
+                return false;
+            }
+        }
+        function emailCorrect(){
+            var emailId = document.femail.email.value;
+            if (emailId.length == "") {
+                alert("Email field can't be empty.");
+                return false;
+            }
+            if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(myForm.emailAddr.value)) {
+            }
+            else{
+                alert("You have entered an invalid email address!")
+                return false;
+            }
+        }
+        function phoneCorrect(){
+            var phoneId = document.fphone.phone.value;
+            if (phoneId.length == "") {
+                alert("Phone field can't be empty.");
+                return false;
+            }
+            if(phoneId.length()>10 || phoneId.length()<10){
+                alert("Enter a valid number.");
+                return false;
+            }
+        }
+        function genderCorrect(){
+            var genderId = document.fgender.gender.value;
+            if (genderId.length == "") {
+                alert("Gender field can't be empty.");
+                return false;
+            }
+            if(!(genderId=="male" || genderId=="female" || genderId=="other")){
+                alert("Accepted options are male, female, other");
+                return false;
+            }
+        }
+        function passCorrect(){
+            var passId = document.fpass.pass.value;
+            if (passId.length == "") {
+                alert("Password field can't be empty.");
+                return false;
+            }
+            if (passId.length() < 6) {
+                alert("Password should have more than 6 characters");
+                return false;
+            }
+
+            if(passId.length()>10){
+                alert("Password should have less than 10 characters");
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

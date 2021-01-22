@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h3>LOGIN PAGE</h3>
+        <form name="f1" action="authentication.php" onsubmit="return validation()" method="post">
+            <input type="phone" name="phone" id="phone" placeholder="Enter your phone number">
+            <input type="text" name="pass" id="pass" placeholder="Enter your password">
+            <button class="btn" type="submit">LOGIN</button>
+        </form>
+        <a href="reg.html">Not a user, Register here</a>
+    </div>
+
+
+    <script>
+        function validation(){
+            var id = document.f1.phone.value;
+            var ps = document.f1.pass.value;
+
+            if(id.length=="" || ps.length==""){
+                alert("Input field can't be empty.");
+                return false;
+            }
+            else{
+                if(id.length<10 || id.length>10){
+                    alert("Invalid number");  
+                    return false;  
+                }
+                if(ps.length()<6){
+                    alert("Password should have more than 6 characters");
+                    return false;
+                }
+
+            }
+        }
+    </script>
+
+</body>
+</html>

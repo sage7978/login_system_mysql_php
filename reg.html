@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-up page</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="container">
+        <h3>SIGN-UP PAGE</h3>
+        <form name="f1" action="register.php" onsubmit="return validation()" method="post">
+            <input type="name" name="name" id="name" placeholder="Enter your name">
+            <input type="phone" name="phone" id="phone" placeholder="Enter your phone number">
+            <input type="email" name="email" id="email" placeholder="Enter your email">
+            <input type="gender" name="gender" id="gender" placeholder="Enter your gender">
+            <input type="pass" name="pass" id="pass" placeholder="Enter your password">
+            <button class="btn" type="submit">SIGNUP</button>
+        </form>
+        <a href="index.html">Already a user, Login here</a>
+    </div>
+
+
+    <script>
+        function validation() {
+            var name = document.f1.name.value;
+            var phone = document.f1.phone.value;
+            var email = document.f1.email.value;
+            var gender = document.f1.gender.value;
+            var pass = document.f1.pass.value;
+
+            if (name.length == "" || phone.length == "" || email.length == "" || gender.length == "" || pass.length == "") {
+                alert("Input field can't be empty.");
+                return false;
+            }
+            else {
+                if (phone.length < 10 || phone.length > 10) {
+                    alert("Invalid number");
+                    return false;
+                }
+                if (pass.length() < 6) {
+                    alert("Password should have more than 6 characters");
+                    return false;
+                }
+                if(!ValidateEmail(email)){
+                    alert("Invalid email");
+                }
+            }
+        }
+
+        function ValidateEmail(mail) {
+            if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(myForm.emailAddr.value)) {
+                return (true)
+            }
+            alert("You have entered an invalid email address!")
+            return (false)
+        }
+
+
+    </script>
+
+</body>
+</html>
